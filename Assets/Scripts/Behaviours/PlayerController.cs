@@ -34,6 +34,7 @@ namespace Behaviours
             _characterController.transform.LookAt(_characterController.transform.position + _movePlayer);
 
             SetGravity();
+            Jump();
             _characterController.Move(_movePlayer * (movementSpeed * Time.deltaTime));
         }
 
@@ -51,6 +52,7 @@ namespace Behaviours
             if (_characterController.isGrounded && Input.GetButtonDown("Jump"))
             {
                 fallVelocity = jumpForce;
+                _movePlayer.y = fallVelocity;
             }
         }
 
