@@ -6,6 +6,7 @@ namespace Behaviours
     public class PlayerController : MonoBehaviour
     {
         private CharacterController _characterController;
+        private Animator _animator;
         private Vector3 _direction;
         private float _acceleration;
         private Vector3 _cameraRight;
@@ -16,11 +17,11 @@ namespace Behaviours
         public float gravity = 9.8f;
         public float fallVelocity;
         public float jumpForce;
-        public LayerMask chaoLa;
 
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
+            _animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -28,14 +29,16 @@ namespace Behaviours
             var horizontalAxis = Input.GetAxis("Horizontal");
             var verticalAxis = Input.GetAxis("Vertical");
             _direction = new Vector3(horizontalAxis, 0, verticalAxis);
+
+            _animator.SetFloat("forward", Mathf.Abs(verticalAxis) >  Mathf.Abs(horizontalAxis) ?  Mathf.Abs(verticalAxis) :  Mathf.Abs(horizontalAxis));
             if (Input.GetButtonDown("Jump") && EhChao())
             {
                 fallVelocity = jumpForce;
             }
 
-            fallVelocity -= gravity * Time.deltaTime ;
-            
-          
+            fallVelocity -= gravity * Time.deltaTime;
+
+
             CameraDirection();
             _movePlayer = _direction.x * _cameraRight + _direction.z * _cameraForward;
             _characterController.transform.LookAt(_characterController.transform.position + _movePlayer);
@@ -62,7 +65,7 @@ namespace Behaviours
             _cameraForward = _cameraForward.normalized;
             _cameraRight = _cameraRight.normalized;
         }
-        
+
         public void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
