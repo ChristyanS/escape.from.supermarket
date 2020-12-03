@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 69344932}
   - component: {fileID: 69344931}
   - component: {fileID: 69344930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 212226040}
   - component: {fileID: 212226039}
   - component: {fileID: 212226038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 442471320}
   - component: {fileID: 442471319}
   - component: {fileID: 442471318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 658442325}
   - component: {fileID: 658442324}
   - component: {fileID: 658442323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 1441168703}
   - component: {fileID: 1441168702}
   - component: {fileID: 1441168701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,9 +1579,6 @@ MonoBehaviour:
   gravity: 9.8
   fallVelocity: 0
   jumpForce: 3
-  chaoLa:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &1517996053
 GameObject:
   m_ObjectHideFlags: 3

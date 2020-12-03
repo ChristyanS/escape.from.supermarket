@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Animations;
 
-namespace Behaviours
+namespace Behaviours.Controllers
 {
     public class PlayerController : MonoBehaviour
     {
@@ -31,13 +30,23 @@ namespace Behaviours
             _direction = new Vector3(horizontalAxis, 0, verticalAxis);
 
             _animator.SetFloat("forward", Mathf.Abs(verticalAxis) >  Mathf.Abs(horizontalAxis) ?  Mathf.Abs(verticalAxis) :  Mathf.Abs(horizontalAxis));
-            if (Input.GetButtonDown("Jump") && EhChao())
+
+            if (EhChao())
             {
-                fallVelocity = jumpForce;
+                _animator.SetBool("isGround", EhChao());
+
+                fallVelocity = 0;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    fallVelocity = jumpForce;
+                }
             }
-
-            fallVelocity -= gravity * Time.deltaTime;
-
+            else
+            {
+                fallVelocity -= gravity * Time.deltaTime;
+                
+            }
+            _animator.SetFloat("fall", fallVelocity);
 
             CameraDirection();
             _movePlayer = _direction.x * _cameraRight + _direction.z * _cameraForward;
@@ -50,8 +59,8 @@ namespace Behaviours
         public bool EhChao()
         {
             return Physics.Raycast(transform.position,
-                Vector3.down * 0.7f,
-                0.5f);
+                Vector3.down * 0.01f,
+                0.01f);
         }
 
         void CameraDirection()
@@ -70,7 +79,7 @@ namespace Behaviours
         {
             Gizmos.color = Color.red;
 
-            Gizmos.DrawRay(transform.position, Vector3.down * 0.7f);
+            Gizmos.DrawRay(transform.position, Vector3.down * 0.01f);
         }
     }
 }
