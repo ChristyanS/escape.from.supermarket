@@ -16,6 +16,7 @@ namespace Behaviours.Controllers
         public float gravity = 9.8f;
         public float fallVelocity;
         public float jumpForce;
+        public float runVelocity = 2; 
 
         void Start()
         {
@@ -53,7 +54,18 @@ namespace Behaviours.Controllers
             _characterController.transform.LookAt(_characterController.transform.position + _movePlayer);
             _direction = _movePlayer;
             _direction.y = fallVelocity;
-            _characterController.Move(_direction * (movementSpeed * Time.deltaTime));
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _animator.SetBool("run", true);
+                _characterController.Move(_direction * (movementSpeed * runVelocity  * Time.deltaTime));
+
+            }
+            else
+            {
+                _animator.SetBool("run", false);
+                _characterController.Move(_direction * (movementSpeed * Time.deltaTime));
+
+            }
         }
 
         public bool EhChao()
