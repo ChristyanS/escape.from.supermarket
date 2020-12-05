@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Behaviours.Controllers
 {
@@ -16,8 +17,8 @@ namespace Behaviours.Controllers
         public float gravity = 9.8f;
         public float fallVelocity;
         public float jumpForce;
-        public float runVelocity = 2; 
-
+        public float runVelocity = 2;
+        public LayerMask dangeours;
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
@@ -31,7 +32,12 @@ namespace Behaviours.Controllers
             _direction = new Vector3(horizontalAxis, 0, verticalAxis);
 
             _animator.SetFloat("forward", Mathf.Abs(verticalAxis) >  Mathf.Abs(horizontalAxis) ?  Mathf.Abs(verticalAxis) :  Mathf.Abs(horizontalAxis));
-
+            
+            if (IsDangeours())
+            {
+            Debug.Log("Morreu");    
+            }
+            
             if (EhChao())
             {
                 _animator.SetBool("isGround", EhChao());
@@ -44,6 +50,7 @@ namespace Behaviours.Controllers
             }
             else
             {
+                _animator.SetBool("isGround", EhChao());
                 fallVelocity -= gravity * Time.deltaTime;
                 
             }
@@ -75,6 +82,12 @@ namespace Behaviours.Controllers
                 0.01f);
         }
 
+        public bool IsDangeours()
+        {
+            return Physics.Raycast(transform.position,
+                Vector3.down * 0.01f,
+                0.01f,dangeours );
+        }
         void CameraDirection()
         {
             _cameraForward = cameraTransform.forward;
