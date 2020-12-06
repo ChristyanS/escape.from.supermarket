@@ -19,6 +19,7 @@ namespace Behaviours.Controllers
         public float jumpForce;
         public float runVelocity = 2;
         public LayerMask dangeours;
+        private bool isDead;
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
@@ -33,9 +34,10 @@ namespace Behaviours.Controllers
 
             _animator.SetFloat("forward", Mathf.Abs(verticalAxis) >  Mathf.Abs(horizontalAxis) ?  Mathf.Abs(verticalAxis) :  Mathf.Abs(horizontalAxis));
             
-            if (IsDangeours())
+            if (IsDangeours() && !isDead)
             {
-            Debug.Log("Morreu");    
+                _animator.SetBool("die", true);
+                enabled = false;
             }
             
             if (EhChao())
