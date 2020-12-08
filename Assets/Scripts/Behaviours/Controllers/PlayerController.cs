@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Behaviours.Controllers
 {
@@ -19,7 +20,9 @@ namespace Behaviours.Controllers
         public float jumpForce;
         public float runVelocity = 2;
         public LayerMask dangeours;
-        private bool isDead;
+        private bool _isDead;
+        public float pushPower = 1;
+
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
@@ -32,17 +35,20 @@ namespace Behaviours.Controllers
             var verticalAxis = Input.GetAxis("Vertical");
             _direction = new Vector3(horizontalAxis, 0, verticalAxis);
 
-            _animator.SetFloat("forward", Mathf.Abs(verticalAxis) >  Mathf.Abs(horizontalAxis) ?  Mathf.Abs(verticalAxis) :  Mathf.Abs(horizontalAxis));
-            
-            if (IsDangeours() && !isDead)
+            _animator.SetFloat("forward",
+                Mathf.Abs(verticalAxis) > Mathf.Abs(horizontalAxis)
+                    ? Mathf.Abs(verticalAxis)
+                    : Mathf.Abs(horizontalAxis));
+
+            if (IsDangeours() && !_isDead)
             {
                 _animator.SetBool("die", true);
                 enabled = false;
             }
-            
-            if (EhChao())
+
+            if (IsGround())
             {
-                _animator.SetBool("isGround", EhChao());
+                _animator.SetBool("isGround", IsGround());
 
                 fallVelocity = 0;
                 if (Input.GetButtonDown("Jump"))
@@ -52,10 +58,10 @@ namespace Behaviours.Controllers
             }
             else
             {
-                _animator.SetBool("isGround", EhChao());
+                _animator.SetBool("isGround", IsGround());
                 fallVelocity -= gravity * Time.deltaTime;
-                
             }
+
             _animator.SetFloat("fall", fallVelocity);
 
             CameraDirection();
@@ -66,30 +72,34 @@ namespace Behaviours.Controllers
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _animator.SetBool("run", true);
-                _characterController.Move(_direction * (movementSpeed * runVelocity  * Time.deltaTime));
-
+                _characterController.Move(_direction * (movementSpeed * runVelocity * Time.deltaTime));
             }
             else
             {
                 _animator.SetBool("run", false);
                 _characterController.Move(_direction * (movementSpeed * Time.deltaTime));
+            }
 
+            if (!Input.GetKey(KeyCode.Mouse0))
+            {
+                _animator.SetBool("push", false);
             }
         }
 
-        public bool EhChao()
+        private bool IsGround()
         {
             return Physics.Raycast(transform.position,
                 Vector3.down * 0.01f,
                 0.01f);
         }
 
-        public bool IsDangeours()
+        private bool IsDangeours()
         {
             return Physics.Raycast(transform.position,
                 Vector3.down * 0.01f,
-                0.01f,dangeours );
+                0.01f, dangeours);
         }
+
         void CameraDirection()
         {
             _cameraForward = cameraTransform.forward;
@@ -107,6 +117,24 @@ namespace Behaviours.Controllers
             Gizmos.color = Color.red;
 
             Gizmos.DrawRay(transform.position, Vector3.down * 0.01f);
+        }
+
+        public void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            var body = hit.collider.attachedRigidbody;
+            if (body)
+            {
+                if (Input.GetKey(KeyCode.Mouse0))
+                {
+                    var pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+                    body.velocity += pushDirection * pushPower;
+                    _animator.SetBool("push", true);
+                }
+                else
+                {
+                    _animator.SetBool("push", false);
+                }
+            }
         }
     }
 }
