@@ -12,11 +12,16 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-           
+        
+      - name: Active Cache
+        uses: actions/cache@v1.1.0
+        with:
+          path: Library
+          key: Library
+               
       - name: Unity - Builder
         uses: webbertakken/unity-builder@v1.4
         with:
-          allowDirtyBuild: true
           unityVersion: 2020.1.0f1
           targetPlatform: StandaloneWindows64
           customParameters: -nographics
