@@ -25,6 +25,7 @@ jobs:
           unityVersion: 2020.1.0f1
           targetPlatform: StandaloneWindows64
           customParameters: -nographics
+          kubeVolumeSize: 10Gi
       
       - name: Upload Build
         uses: actions/upload-artifact@v1
