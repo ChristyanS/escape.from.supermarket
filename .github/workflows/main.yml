@@ -18,11 +18,11 @@ jobs:
           key: Library
            
                 
-      - name: Build Unity
-        uses: kuler90/build-unity@v1
+      - name: Unity - Builder
+        uses: game-ci/unity-builder@v2.0-alpha-1
         with:
-          build-target: StandaloneWindows64
-          build-path: ./build.exe
+          unityVersion: 2020.1.0f1
+          targetPlatform: StandaloneWindows64
       
       - name: Upload Build
         uses: actions/upload-artifact@v1
