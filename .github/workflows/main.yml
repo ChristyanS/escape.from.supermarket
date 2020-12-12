@@ -17,13 +17,12 @@ jobs:
           path: Library
           key: Library
            
-      - name: Unity - Builder
-        uses: game-ci/unity-builder@v1.5
+                
+      - name: Build Unity
+        uses: kuler90/build-unity@v1
         with:
-          unityVersion: 2020.1.0f1
-          versioning: Semantic
-          targetPlatform: StandaloneWindows64
-          allowDirtyBuild : true 
+          build-target: StandaloneWindows64
+          build-path: ./build.exe
       
       - name: Upload Build
         uses: actions/upload-artifact@v1
