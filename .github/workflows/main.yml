@@ -20,7 +20,7 @@ jobs:
           key: Library
                
       - name: Unity - Builder
-        uses: game-ci/unity-builder@v2.0-alpha-5
+        uses: game-ci/unity-builder@v1.5
         with:
           unityVersion: 2020.1.0f1
           targetPlatform: StandaloneWindows64
