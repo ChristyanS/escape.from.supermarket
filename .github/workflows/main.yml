@@ -20,7 +20,7 @@ jobs:
           key: Library
                
       - name: Unity - Builder
-        uses: webbertakken/unity-builder@v1.4
+        uses: game-ci/unity-builder@v2.0-aplha-5
         with:
           unityVersion: 2020.1.0f1
           targetPlatform: StandaloneWindows64
