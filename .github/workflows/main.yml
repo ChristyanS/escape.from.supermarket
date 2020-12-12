@@ -17,13 +17,13 @@ jobs:
           path: Library
           key: Library
            
+                
       - name: Unity - Builder
-        uses: game-ci/unity-builder@v1.5
+        uses: game-ci/unity-builder@v2.0-aplha-5
         with:
           unityVersion: 2020.1.0f1
-          versioning: Semantic
           targetPlatform: StandaloneWindows64
-          allowDirtyBuild : true 
+          kubeVolumeSize: 8Gi
       
       - name: Upload Build
         uses: actions/upload-artifact@v1
