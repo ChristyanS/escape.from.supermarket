@@ -19,7 +19,7 @@ jobs:
            
                 
       - name: Unity - Builder
-        uses: game-ci/unity-builder@v2.0-alpha-1
+        uses: game-ci/unity-builder@v2.0-aplha-5
         with:
           unityVersion: 2020.1.0f1
           targetPlatform: StandaloneWindows64
