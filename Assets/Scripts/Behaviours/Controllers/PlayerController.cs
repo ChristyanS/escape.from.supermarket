@@ -10,11 +10,15 @@ namespace Behaviours.Controllers
         public float jumpForce = 3;
         public float runVelocity = 1.5f;
         public float pushPower = 0.05f;
+        public float timeToDie = 2f;
+        public float reduceVelocity = 2f;
         public float FallVelocity { get; set; }
         private CharacterController _characterController;
         private Vector3 _movePlayer;
         public Transform cameraTransform;
-
+        private float _timeToDieAux;
+        public Renderer render;
+        public bool isDied { get; set; }
 
         void Start()
         {
@@ -25,7 +29,13 @@ namespace Behaviours.Controllers
         {
             if (IsDangeours())
             {
-                enabled = false;
+                TimeTiDie();
+            }
+            else
+            {
+                _timeToDieAux = 0;
+                render.enabled = true;
+                isDied = false;
             }
 
             SetPlayerMoveDirection();
@@ -45,7 +55,13 @@ namespace Behaviours.Controllers
 
         private void SetMovement()
         {
-            var motion = _movePlayer * (movementSpeed * Time.deltaTime);
+            var reduceVelocityAux = 1f;
+            if (IsDangeours())
+            {
+                reduceVelocityAux = reduceVelocity;
+            }
+
+            var motion = _movePlayer * (movementSpeed / reduceVelocityAux * Time.deltaTime);
             if (VirtualInputManager.Instance.Run)
                 motion *= runVelocity;
             _characterController.Move(motion);
@@ -119,6 +135,16 @@ namespace Behaviours.Controllers
                     var pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
                     body.velocity += pushDirection * pushPower;
                 }
+            }
+        }
+
+        private void TimeTiDie()
+        {
+            _timeToDieAux += 1 * Time.deltaTime;
+            if (_timeToDieAux > timeToDie)
+            {
+                isDied = true;
+                enabled = false;
             }
         }
     }

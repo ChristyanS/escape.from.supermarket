@@ -46,7 +46,7 @@ namespace Behaviours.Controllers
 
         private void CheckDeathAnimation()
         {
-            _animator.SetBool(Die, _playerController.IsDangeours());
+            _animator.SetBool(Die, _playerController.isDied);
         }
 
         private void CheckPushAnimation()
