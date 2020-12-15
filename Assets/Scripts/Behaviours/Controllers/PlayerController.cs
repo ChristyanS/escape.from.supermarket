@@ -63,7 +63,7 @@ namespace Behaviours.Controllers
 
             var motion = _movePlayer * (movementSpeed / reduceVelocityAux * Time.deltaTime);
             if (VirtualInputManager.Instance.Run)
-                motion *= runVelocity;
+                motion = new Vector3(motion.x * runVelocity,motion.y,motion.z * runVelocity); ;
             _characterController.Move(motion);
         }
 
