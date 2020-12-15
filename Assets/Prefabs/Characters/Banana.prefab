@@ -332,13 +332,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3944668410576076086}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.44136155, y: 0.55244935, z: 0.5524492, w: 0.44136116}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8232960721724314602}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 102.756}
 --- !u!137 &5192332770201524168
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -808,7 +808,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8488127878732969406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.235, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8232960721724314602}
@@ -888,6 +888,7 @@ GameObject:
   - component: {fileID: 2639521683490392464}
   - component: {fileID: 8488127876930239759}
   - component: {fileID: 8488127876930239756}
+  - component: {fileID: 1908595559004245543}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -902,8 +903,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8721935930558990672}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.981823, y: 0, z: -32.151257}
+  m_LocalRotation: {x: -0, y: -0.68990076, z: -0, w: 0.7239041}
+  m_LocalPosition: {x: 10.87, y: 0, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2892178536911139440}
@@ -911,7 +912,7 @@ Transform:
   - {fileID: 8488127878732969407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.244, z: 0}
 --- !u!95 &2639521683490392464
 Animator:
   serializedVersion: 3
@@ -961,11 +962,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6860da32e4f2b14e8f05d2ad3f5034b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 0}
-  movementSpeed: 2
+  movementSpeed: 1.7
   gravity: 9.8
-  fallVelocity: 0
-  jumpForce: 0
+  jumpForce: 3
+  runVelocity: 1.5
+  pushPower: 0.05
+  timeToDie: 2
+  reduceVelocity: 3
+  cameraTransform: {fileID: 0}
+  render: {fileID: 5192332770201524168}
+--- !u!114 &1908595559004245543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721935930558990672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9fe538de239b348b77871acfde48d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8849260773525858827
 GameObject:
   m_ObjectHideFlags: 0
