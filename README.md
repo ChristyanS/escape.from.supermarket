@@ -4,7 +4,7 @@
 
 [![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=plastic&logo=unity)](https://unity3d.com)
 
-![Idle animation](https://i.ibb.co/HrR8LbQ/banana-gif.gif)
+![Idle animation](https://im3.ezgif.com/tmp/ezgif-3-c83dc53b4450.gif)
 
 ## Installation
 
