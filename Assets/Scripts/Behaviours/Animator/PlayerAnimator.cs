@@ -1,22 +1,23 @@
-﻿using Behaviours.Managers;
+﻿using Behaviours.Controllers;
+using Behaviours.Managers;
 using UnityEngine;
 
-namespace Behaviours.Controllers
+namespace Behaviours.Animator
 {
     public class PlayerAnimator : MonoBehaviour
     {
-        private Animator _animator;
+        private UnityEngine.Animator _animator;
         private PlayerController _playerController;
-        private static readonly int Forward = Animator.StringToHash("forward");
-        private static readonly int Run = Animator.StringToHash("run");
-        private static readonly int Die = Animator.StringToHash("die");
-        private static readonly int Push = Animator.StringToHash("push");
-        private static readonly int IsGround = Animator.StringToHash("isGround");
-        private static readonly int Fall = Animator.StringToHash("fall");
+        private static readonly int Forward = UnityEngine.Animator.StringToHash("forward");
+        private static readonly int Run = UnityEngine.Animator.StringToHash("run");
+        private static readonly int Die = UnityEngine.Animator.StringToHash("die");
+        private static readonly int Push = UnityEngine.Animator.StringToHash("push");
+        private static readonly int IsGround = UnityEngine.Animator.StringToHash("isGround");
+        private static readonly int Fall = UnityEngine.Animator.StringToHash("fall");
 
         void Start()
         {
-            _animator = GetComponent<Animator>();
+            _animator = GetComponent<UnityEngine.Animator>();
             _playerController = GetComponent<PlayerController>();
         }
 
@@ -28,6 +29,16 @@ namespace Behaviours.Controllers
             CheckPushAnimation();
             CheckGround();
             CheckFall();
+            CheckRagdoll();
+        }
+
+        private void CheckRagdoll()
+        {
+            if ( _playerController.FallVelocity <= -6)
+            {
+                _animator.enabled = false;
+                
+            }
         }
 
         private void CheckFowardAnimation()
@@ -46,7 +57,7 @@ namespace Behaviours.Controllers
 
         private void CheckDeathAnimation()
         {
-            _animator.SetBool(Die, _playerController.isDied);
+            _animator.SetBool(Die, _playerController.IsDied);
         }
 
         private void CheckPushAnimation()

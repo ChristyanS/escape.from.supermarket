@@ -18,7 +18,7 @@ namespace Behaviours.Controllers
         public Transform cameraTransform;
         private float _timeToDieAux;
         public Renderer render;
-        public bool isDied { get; set; }
+        public bool IsDied { get; set; }
 
         void Start()
         {
@@ -35,9 +35,10 @@ namespace Behaviours.Controllers
             {
                 _timeToDieAux = 0;
                 render.enabled = true;
-                isDied = false;
+                IsDied = false;
             }
 
+            SetDeathPerFall();
             SetPlayerMoveDirection();
             SetPlayerLookAtDirection();
 
@@ -53,6 +54,17 @@ namespace Behaviours.Controllers
             SetMovement();
         }
 
+        private void SetDeathPerFall()
+        {
+            if (FallVelocity <= -6)
+            {
+                IsDied = true;
+                _characterController.enabled = false;
+                enabled = false;
+
+            }
+        }
+
         private void SetMovement()
         {
             var reduceVelocityAux = 1f;
@@ -63,7 +75,8 @@ namespace Behaviours.Controllers
 
             var motion = _movePlayer * (movementSpeed / reduceVelocityAux * Time.deltaTime);
             if (VirtualInputManager.Instance.Run)
-                motion = new Vector3(motion.x * runVelocity,motion.y,motion.z * runVelocity); ;
+                motion = new Vector3(motion.x * runVelocity, motion.y, motion.z * runVelocity);
+            ;
             _characterController.Move(motion);
         }
 
@@ -94,7 +107,7 @@ namespace Behaviours.Controllers
         {
             return Physics.Raycast(transform.position,
                 Vector3.down * 0.01f,
-                0.01f);
+                0.01f, LayerMask.GetMask("Default"));
         }
 
         public bool IsDangeours()
@@ -143,7 +156,7 @@ namespace Behaviours.Controllers
             _timeToDieAux += 1 * Time.deltaTime;
             if (_timeToDieAux > timeToDie)
             {
-                isDied = true;
+                IsDied = true;
                 enabled = false;
             }
         }
