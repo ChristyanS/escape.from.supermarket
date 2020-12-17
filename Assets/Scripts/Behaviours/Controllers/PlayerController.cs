@@ -17,7 +17,7 @@ namespace Behaviours.Controllers
         private Vector3 _movePlayer;
         public Transform cameraTransform;
         private float _timeToDieAux;
-        public Renderer render;
+        public GameObject checkGround;
         public bool IsDied { get; set; }
 
         void Start()
@@ -34,7 +34,6 @@ namespace Behaviours.Controllers
             else
             {
                 _timeToDieAux = 0;
-                render.enabled = true;
                 IsDied = false;
             }
 
@@ -76,7 +75,6 @@ namespace Behaviours.Controllers
             var motion = _movePlayer * (movementSpeed / reduceVelocityAux * Time.deltaTime);
             if (VirtualInputManager.Instance.Run)
                 motion = new Vector3(motion.x * runVelocity, motion.y, motion.z * runVelocity);
-            ;
             _characterController.Move(motion);
         }
 
@@ -105,9 +103,7 @@ namespace Behaviours.Controllers
 
         public bool IsGround()
         {
-            return Physics.Raycast(transform.position,
-                Vector3.down * 0.01f,
-                0.01f, LayerMask.GetMask("Default"));
+            return Physics.CheckSphere(checkGround.transform.position, 0.08f, LayerMask.GetMask("Default"));
         }
 
         public bool IsDangeours()
@@ -133,9 +129,9 @@ namespace Behaviours.Controllers
 
         public void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.yellow;
 
-            Gizmos.DrawRay(transform.position, Vector3.down * 0.01f);
+            Gizmos.DrawWireSphere(checkGround.transform.position, 0.08f);
         }
 
         public void OnControllerColliderHit(ControllerColliderHit hit)
