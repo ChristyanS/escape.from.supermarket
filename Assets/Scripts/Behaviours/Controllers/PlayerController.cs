@@ -27,7 +27,7 @@ namespace Behaviours.Controllers
 
         void Update()
         {
-            if (IsDangeours())
+            if (IsDangerous())
             {
                 TimeTiDie();
             }
@@ -67,7 +67,7 @@ namespace Behaviours.Controllers
         private void SetMovement()
         {
             var reduceVelocityAux = 1f;
-            if (IsDangeours())
+            if (IsDangerous())
             {
                 reduceVelocityAux = reduceVelocity;
             }
@@ -106,11 +106,12 @@ namespace Behaviours.Controllers
             return Physics.CheckSphere(checkGround.transform.position, 0.08f, LayerMask.GetMask("Default"));
         }
 
-        public bool IsDangeours()
+        private bool IsDangerous()
         {
-            return Physics.Raycast(transform.position,
-                Vector3.down * 0.01f,
-                0.01f, LayerMask.GetMask("Dangeours"));
+            var detected =  Physics.Raycast(transform.position,
+                Vector3.down * 0.01f, out var hit,
+                1);
+            return detected && hit.transform.CompareTag("Fire");
         }
 
         private Vector3 GetCameraForward()
@@ -132,6 +133,7 @@ namespace Behaviours.Controllers
             Gizmos.color = Color.yellow;
 
             Gizmos.DrawWireSphere(checkGround.transform.position, 0.08f);
+            Gizmos.DrawRay(checkGround.transform.position, Vector3.down* 0.35f);
         }
 
         public void OnControllerColliderHit(ControllerColliderHit hit)
