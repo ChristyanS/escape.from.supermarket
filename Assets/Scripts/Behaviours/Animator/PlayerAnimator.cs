@@ -62,7 +62,11 @@ namespace Behaviours.Animator
 
         private void CheckPushAnimation()
         {
-            _animator.SetBool(Push, VirtualInputManager.Instance.Push);
+            if (_playerController.IsPushing)
+            {
+                _animator.SetBool(Push, VirtualInputManager.Instance.Push);
+
+            }
         }
         
         private void CheckGround()

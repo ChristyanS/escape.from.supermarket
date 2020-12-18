@@ -11,7 +11,6 @@ namespace Behaviours.Controllers
         public float gravity = 9.8f;
         public float jumpForce = 3;
         public float runVelocity = 1.5f;
-        public float pushPower = 0.05f;
         public float timeToDie = 2f;
         public float reduceVelocity = 2f;
         public float FallVelocity { get; set; }
@@ -21,6 +20,7 @@ namespace Behaviours.Controllers
         private float _timeToDieAux;
         public GameObject checkGround;
         public bool IsDied { get; set; }
+        public bool IsPushing { get; set; }
         private bool _isInjured;
 
         void Start()
@@ -40,6 +40,8 @@ namespace Behaviours.Controllers
 
         void Update()
         {
+            IsPushing = false;
+
             if (IsDangerous())
             {
                 if (!_isInjured)
@@ -128,7 +130,7 @@ namespace Behaviours.Controllers
             var detected = Physics.Raycast(transform.position,
                 Vector3.down * 0.01f, out var hit,
                 0.01f);
-            return detected && hit.transform.CompareTag("Fire");
+            return detected && hit.transform.CompareTag("Dangerous");
         }
 
         private Vector3 GetCameraForward()
@@ -149,21 +151,19 @@ namespace Behaviours.Controllers
         {
             Gizmos.color = Color.yellow;
 
-            Gizmos.DrawWireSphere(checkGround.transform.position, 0.08f);
-            Gizmos.DrawRay(checkGround.transform.position, Vector3.down * 0.35f);
+            var position = checkGround.transform.position;
+            Gizmos.DrawWireSphere(position, 0.08f);
+            Gizmos.DrawRay(position, Vector3.down * 0.35f);
         }
 
         public void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            var body = hit.collider.attachedRigidbody;
-            if (body)
+            if (hit.collider != null && hit.collider.CompareTag("Pushable"))
             {
-                if (VirtualInputManager.Instance.Push)
-                {
-                    var pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-                    body.velocity += pushDirection * pushPower;
-                }
+                IsPushing = true;
+                hit.collider.attachedRigidbody.isKinematic = !VirtualInputManager.Instance.Push;
             }
+
         }
 
         private void TimeTiDie()
