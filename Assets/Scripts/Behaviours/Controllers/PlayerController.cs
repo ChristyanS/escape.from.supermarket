@@ -44,7 +44,7 @@ namespace Behaviours.Controllers
             if (IsGround())
             {
                 FallVelocity = 0;
-                if (VirtualInputManager.Instance.Jump)
+                if (VirtualInputManager.Instance.Jump && !IsDangerous())
                     SetJump();
             }
             else
@@ -110,7 +110,7 @@ namespace Behaviours.Controllers
         {
             var detected =  Physics.Raycast(transform.position,
                 Vector3.down * 0.01f, out var hit,
-                1);
+                0.01f);
             return detected && hit.transform.CompareTag("Fire");
         }
 
