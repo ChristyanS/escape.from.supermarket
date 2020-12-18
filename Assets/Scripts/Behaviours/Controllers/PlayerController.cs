@@ -1,4 +1,6 @@
-﻿using Behaviours.Managers;
+﻿using System.Collections;
+using Behaviours.Actions;
+using Behaviours.Managers;
 using UnityEngine;
 
 namespace Behaviours.Controllers
@@ -19,16 +21,32 @@ namespace Behaviours.Controllers
         private float _timeToDieAux;
         public GameObject checkGround;
         public bool IsDied { get; set; }
+        private bool _isInjured;
 
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
         }
 
+        private IEnumerator Timer()
+        {
+            CameraShake.Instance.ShakeCamera(0.6f);
+            _isInjured = true;
+            yield return new WaitForSeconds(0.1f);
+            CameraShake.Instance.ShakeCamera(0);
+            yield return new WaitForSeconds(1);
+            _isInjured = false;
+        }
+
         void Update()
         {
             if (IsDangerous())
             {
+                if (!_isInjured)
+                {
+                    StartCoroutine(Timer());
+                }
+
                 TimeTiDie();
             }
             else
@@ -60,7 +78,6 @@ namespace Behaviours.Controllers
                 IsDied = true;
                 _characterController.enabled = false;
                 enabled = false;
-
             }
         }
 
@@ -108,7 +125,7 @@ namespace Behaviours.Controllers
 
         private bool IsDangerous()
         {
-            var detected =  Physics.Raycast(transform.position,
+            var detected = Physics.Raycast(transform.position,
                 Vector3.down * 0.01f, out var hit,
                 0.01f);
             return detected && hit.transform.CompareTag("Fire");
@@ -133,7 +150,7 @@ namespace Behaviours.Controllers
             Gizmos.color = Color.yellow;
 
             Gizmos.DrawWireSphere(checkGround.transform.position, 0.08f);
-            Gizmos.DrawRay(checkGround.transform.position, Vector3.down* 0.35f);
+            Gizmos.DrawRay(checkGround.transform.position, Vector3.down * 0.35f);
         }
 
         public void OnControllerColliderHit(ControllerColliderHit hit)
