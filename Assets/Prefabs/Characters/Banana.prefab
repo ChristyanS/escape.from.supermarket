@@ -1776,7 +1776,7 @@ MonoBehaviour:
   jumpForce: 3
   runVelocity: 1.5
   pushPower: 0.05
-  timeToDie: 2
+  timeToDie: 4
   reduceVelocity: 3
   cameraTransform: {fileID: 0}
   checkGround: {fileID: 1328956194}

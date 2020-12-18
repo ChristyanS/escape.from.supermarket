@@ -6458,7 +6458,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705128357}
-  m_LocalRotation: {x: 0.018189494, y: 0.0000000020559348, z: 3.7402595e-11, w: 0.9998346}
+  m_LocalRotation: {x: 0.018189494, y: 0.0000000020552964, z: 3.7390983e-11, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11361,7 +11361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245273928}
-  m_LocalRotation: {x: -0.018141454, y: 0.000000002053219, z: 1.1205961e-10, w: 0.9998355}
+  m_LocalRotation: {x: -0.018141454, y: 0.0000000020525817, z: 1.1202485e-10, w: 0.9998355}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14409,7 +14409,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517996053}
-  m_LocalRotation: {x: 0.0000000018626451, y: 0.0000000029253573, z: 1.0647437e-10, w: 1}
+  m_LocalRotation: {x: 0.0000000018626451, y: 0.0000000029248017, z: 1.06454144e-10, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17711,7 +17711,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999581279}
-  m_LocalRotation: {x: -0.018189494, y: 0.0000000020559001, z: 3.7401963e-11, w: 0.9998346}
+  m_LocalRotation: {x: -0.018189494, y: 0.0000000020559345, z: 3.740259e-11, w: 0.9998346}
   m_LocalPosition: {x: -2.188, y: 0.252, z: -11.519}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19451,10 +19451,6 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1999581282}
-    - target: {fileID: 8488127876930239756, guid: 9eb7c063454703c48849095702ba9192, type: 3}
-      propertyPath: timeToDie
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8721935930558990672, guid: 9eb7c063454703c48849095702ba9192, type: 3}
       propertyPath: m_Name
       value: Banana
