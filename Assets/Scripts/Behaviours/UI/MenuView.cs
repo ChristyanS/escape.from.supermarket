@@ -8,7 +8,7 @@ namespace Behaviours.UI
 
         private void Update()
         {
-            if (Input.anyKey)
+            if (Input.GetKey(KeyCode.Return))
             {
                 SceneManager.LoadScene(1);
             }
