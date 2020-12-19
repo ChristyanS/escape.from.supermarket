@@ -80,6 +80,7 @@ namespace Behaviours.Controllers
                 IsDied = true;
                 _characterController.enabled = false;
                 enabled = false;
+                BlackAndWhiteEffect.Instance.Enable();
             }
         }
 
@@ -171,6 +172,7 @@ namespace Behaviours.Controllers
             _timeToDieAux += 1 * Time.deltaTime;
             if (_timeToDieAux > timeToDie)
             {
+                BlackAndWhiteEffect.Instance.Enable();
                 IsDied = true;
                 enabled = false;
             }

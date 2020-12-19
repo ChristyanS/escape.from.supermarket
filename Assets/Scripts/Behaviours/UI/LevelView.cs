@@ -9,6 +9,6 @@ namespace Behaviours.UI
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-
+        
     }
 }
