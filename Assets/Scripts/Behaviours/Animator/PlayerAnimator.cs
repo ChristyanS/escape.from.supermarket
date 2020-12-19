@@ -14,6 +14,7 @@ namespace Behaviours.Animator
         private static readonly int Push = UnityEngine.Animator.StringToHash("push");
         private static readonly int IsGround = UnityEngine.Animator.StringToHash("isGround");
         private static readonly int Fall = UnityEngine.Animator.StringToHash("fall");
+        private static readonly int IsWinner = UnityEngine.Animator.StringToHash("IsWinner");
 
         void Start()
         {
@@ -30,14 +31,14 @@ namespace Behaviours.Animator
             CheckGround();
             CheckFall();
             CheckRagdoll();
+            CheckWin();
         }
 
         private void CheckRagdoll()
         {
-            if ( _playerController.FallVelocity <= -6)
+            if (_playerController.FallVelocity <= -6)
             {
                 _animator.enabled = false;
-                
             }
         }
 
@@ -65,19 +66,22 @@ namespace Behaviours.Animator
             if (_playerController.IsPushing)
             {
                 _animator.SetBool(Push, VirtualInputManager.Instance.Push);
-
             }
         }
-        
+
         private void CheckGround()
         {
             _animator.SetBool(IsGround, _playerController.IsGround());
         }
-        
+
         private void CheckFall()
         {
             _animator.SetFloat(Fall, _playerController.FallVelocity);
         }
 
+        private void CheckWin()
+        {
+            _animator.SetBool(IsWinner, _playerController.IsWinner);
+        }
     }
 }

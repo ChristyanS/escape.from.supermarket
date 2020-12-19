@@ -22,6 +22,7 @@ namespace Behaviours.Controllers
         public bool IsDied { get; set; }
         public bool IsPushing { get; set; }
         private bool _isInjured;
+        public bool IsWinner { get; set; }
 
         void Start()
         {
@@ -165,6 +166,15 @@ namespace Behaviours.Controllers
                 hit.collider.attachedRigidbody.isKinematic = !VirtualInputManager.Instance.Push;
             }
 
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Finish"))
+            {
+                IsWinner = true;
+                enabled = false;
+            }
         }
 
         private void TimeTiDie()
