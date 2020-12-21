@@ -230,7 +230,7 @@ namespace Behaviours.Controllers
         {
             BlackAndWhiteEffect.Instance.Enable();
             IsDied = true;
-            VirtualInputManager.Instance.EnableControls(false);
+            VirtualInputManager.Instance.EnableAllControls(false);
         }
     }
 }
