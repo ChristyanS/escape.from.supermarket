@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Behaviours.Managers;
 using Cinemachine;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ namespace Behaviours.Actions
                 targetObject.GetComponent<UnityEngine.Animator>().SetBool(Trigger, true);
                 _trigged = true;
                 freeLook.gameObject.GetComponent<UnityEngine.Animator>();
+                VirtualInputManager.Instance.EnableControls(false);
                 StartCoroutine(ChangeCamera());
             }
            
@@ -35,6 +37,7 @@ namespace Behaviours.Actions
             yield return new WaitForSeconds(2);
             freeLook.enabled = true;
             virtualCamera.enabled = false;
+            VirtualInputManager.Instance.EnableControls(true);
         }
     }
 }

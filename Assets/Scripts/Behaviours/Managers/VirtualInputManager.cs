@@ -4,12 +4,16 @@ namespace Behaviours.Managers
 {
     public class VirtualInputManager : Singleton<VirtualInputManager>
     {
-        public Vector3 Direction { get; set; }
-        public float HorizontalAxis { get; set; }
-        public float VerticalAxis { get; set; }
-        public bool Jump { get; set; }
-        public bool Run { get; set; }
-        public bool Push { get; set; }
+        public bool enableJump;
+        public bool enableRun;
+        public bool enablePush;
+        public bool enableWalk;
+        public Vector3 Direction { get; private set; }
+        public float HorizontalAxis { get; private set; }
+        public float VerticalAxis { get; private set; }
+        public bool Jump { get; private set; }
+        public bool Run { get; private set; }
+        public bool Push { get; private set; }
 
         private void Update()
         {
@@ -23,23 +27,30 @@ namespace Behaviours.Managers
         {
             HorizontalAxis = Input.GetAxis("Horizontal");
             VerticalAxis = Input.GetAxis("Vertical");
-            Direction = new Vector3(HorizontalAxis, 0, VerticalAxis);
+            Direction = enableWalk ? new Vector3(HorizontalAxis, 0, VerticalAxis) : Vector3.zero;
         }
 
         private void CheckJump()
         {
-            Jump = Input.GetButtonDown("Jump");
+            Jump = Input.GetButtonDown("Jump") && enableJump;
         }
 
         private void CheckRun()
         {
-            Run = Input.GetKey(KeyCode.LeftShift);
+            Run = Input.GetKey(KeyCode.LeftShift) && enableRun;
         }
 
         private void CheckPush()
         {
-            Push = Input.GetKey(KeyCode.Mouse0);
+            Push = Input.GetKey(KeyCode.Mouse0) && enablePush;
         }
-        
+
+        public void EnableControls(bool enable)
+        {
+            enableJump = enable;
+            enableRun = enable;
+            enablePush = enable;
+            enableWalk = enable;
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace Behaviours.Animator
 
         void Update()
         {
-            CheckFowardAnimation();
+            CheckForwardAnimation();
             CheckRunAnimation();
             CheckDeathAnimation();
             CheckPushAnimation();
@@ -36,19 +36,20 @@ namespace Behaviours.Animator
 
         private void CheckRagdoll()
         {
-            if (_playerController.FallVelocity <= -6)
+            if (_playerController.IsDeadByFall())
             {
                 _animator.enabled = false;
             }
         }
 
-        private void CheckFowardAnimation()
+        private void CheckForwardAnimation()
         {
-            _animator.SetFloat(Forward,
-                Mathf.Abs(VirtualInputManager.Instance.VerticalAxis) >
-                Mathf.Abs(VirtualInputManager.Instance.HorizontalAxis)
-                    ? Mathf.Abs(VirtualInputManager.Instance.VerticalAxis)
-                    : Mathf.Abs(VirtualInputManager.Instance.HorizontalAxis));
+            if (_playerController.IsWalking)
+                _animator.SetFloat(Forward,
+                    Mathf.Abs(VirtualInputManager.Instance.VerticalAxis) >
+                    Mathf.Abs(VirtualInputManager.Instance.HorizontalAxis)
+                        ? Mathf.Abs(VirtualInputManager.Instance.VerticalAxis)
+                        : Mathf.Abs(VirtualInputManager.Instance.HorizontalAxis));
         }
 
         private void CheckRunAnimation()

@@ -7,29 +7,32 @@ namespace Behaviours.Controllers
 {
     public class PlayerController : MonoBehaviour
     {
-        public float movementSpeed = 1.7f;
-        public float gravity = 9.8f;
-        public float jumpForce = 3;
-        public float runVelocity = 1.5f;
-        public float timeToDie = 2f;
-        public float reduceVelocity = 2f;
-        public float FallVelocity { get; set; }
+        [SerializeField] [Range(0, 3)] private float movementSpeed = 1.7f;
+        [SerializeField] [Range(1, 100)] private float gravity = 9.8f;
+        [SerializeField] [Range(0, 20)] private float jumpForce = 3;
+        [SerializeField] [Range(1, 4)] private float speedMultiplier = 1.5f;
+        [SerializeField] [Range(0, 20)] private float timeToDie = 4f;
+        [SerializeField] [Range(1, 5)] private float reduceVelocity = 3f;
+        [SerializeField] [Range(-20, 0)] private float fallVelocityDeath = -6;
+        public Transform cameraTransform;
+        public GameObject checkGround;
+
         private CharacterController _characterController;
         private Vector3 _movePlayer;
-        public Transform cameraTransform;
         private float _timeToDieAux;
-        public GameObject checkGround;
-        public bool IsDied { get; set; }
-        public bool IsPushing { get; set; }
         private bool _isInjured;
-        public bool IsWinner { get; set; }
+        public float FallVelocity { get; private set; }
+        public bool IsDied { get; private set; }
+        public bool IsPushing { get; private set; }
+        public bool IsWinner { get; private set; }
+        public bool IsWalking { get; private set; }
 
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
         }
 
-        private IEnumerator Timer()
+        private IEnumerator DamageEffect()
         {
             CameraShake.Instance.ShakeCamera(0.6f);
             _isInjured = true;
@@ -42,68 +45,102 @@ namespace Behaviours.Controllers
         void Update()
         {
             IsPushing = false;
+            SetPlayerMoveDirection();
+            SetPlayerLookAtDirection();
+            
+            if (!IsDied)
+            {
+                SetDeathByPuddleTrap();
+                SetDeathPerFall();
+                if (IsGround())
+                {
+                    FallVelocity = 0;
+                    SetJumping();
+                }
+                else
+                    SetGravity();
 
+                SetMovement();  
+            }
+            
+        }
+
+        private void SetJumping()
+        {
+            if (CanJump())
+            {
+                FallVelocity = jumpForce;
+                _movePlayer.y = FallVelocity;
+            }
+        }
+
+        private void SetDeathByPuddleTrap()
+        {
             if (IsDangerous())
             {
                 if (!_isInjured)
                 {
-                    StartCoroutine(Timer());
+                    StartCoroutine(DamageEffect());
                 }
 
-                TimeTiDie();
+                SetDeathCountdown();
             }
             else
             {
                 _timeToDieAux = 0;
                 IsDied = false;
             }
+        }
 
-            SetDeathPerFall();
-            SetPlayerMoveDirection();
-            SetPlayerLookAtDirection();
-
-            if (IsGround())
-            {
-                FallVelocity = 0;
-                if (VirtualInputManager.Instance.Jump && !IsDangerous())
-                    SetJump();
-            }
-            else
-                SetGravity();
-
-            SetMovement();
+        private bool CanJump()
+        {
+            return VirtualInputManager.Instance.Jump && !IsDangerous();
         }
 
         private void SetDeathPerFall()
         {
-            if (FallVelocity <= -6)
+            if (IsDeadByFall())
             {
-                IsDied = true;
-                _characterController.enabled = false;
-                enabled = false;
-                BlackAndWhiteEffect.Instance.Enable();
+                SetDeath();
             }
+        }
+
+        public bool IsDeadByFall()
+        {
+            return FallVelocity <= fallVelocityDeath;
         }
 
         private void SetMovement()
         {
             var reduceVelocityAux = 1f;
+
             if (IsDangerous())
             {
                 reduceVelocityAux = reduceVelocity;
             }
 
-            var motion = _movePlayer * (movementSpeed / reduceVelocityAux * Time.deltaTime);
+            var horizontalVelocity = movementSpeed / reduceVelocityAux;
+
+            SetWalkVelocity(horizontalVelocity);
+
             if (VirtualInputManager.Instance.Run)
-                motion = new Vector3(motion.x * runVelocity, motion.y, motion.z * runVelocity);
-            _characterController.Move(motion);
+                SetRunVelocity();
+            _characterController.Move(_movePlayer);
         }
 
-        private void SetJump()
+        private void SetRunVelocity()
         {
-            FallVelocity = jumpForce;
-            _movePlayer.y = FallVelocity;
+            _movePlayer = new Vector3(_movePlayer.x * speedMultiplier, _movePlayer.y, _movePlayer.z * speedMultiplier);
         }
+
+        private void SetWalkVelocity(float horizontalVelocity)
+        {
+            _movePlayer =
+                new Vector3(_movePlayer.x * horizontalVelocity, _movePlayer.y * 1.7f,
+                    _movePlayer.z * horizontalVelocity) *
+                Time.deltaTime;
+        }
+
 
         private void SetGravity()
         {
@@ -120,6 +157,10 @@ namespace Behaviours.Controllers
         {
             _movePlayer = VirtualInputManager.Instance.Direction.x * GetCameraRight() +
                           VirtualInputManager.Instance.Direction.z * GetCameraForward();
+            if (_movePlayer != Vector3.zero)
+            {
+                IsWalking = true;
+            }
         }
 
         public bool IsGround()
@@ -165,7 +206,6 @@ namespace Behaviours.Controllers
                 IsPushing = true;
                 hit.collider.attachedRigidbody.isKinematic = !VirtualInputManager.Instance.Push;
             }
-
         }
 
         public void OnTriggerEnter(Collider other)
@@ -177,15 +217,20 @@ namespace Behaviours.Controllers
             }
         }
 
-        private void TimeTiDie()
+        private void SetDeathCountdown()
         {
             _timeToDieAux += 1 * Time.deltaTime;
             if (_timeToDieAux > timeToDie)
             {
-                BlackAndWhiteEffect.Instance.Enable();
-                IsDied = true;
-                enabled = false;
+                SetDeath();
             }
+        }
+
+        private void SetDeath()
+        {
+            BlackAndWhiteEffect.Instance.Enable();
+            IsDied = true;
+            VirtualInputManager.Instance.EnableControls(false);
         }
     }
 }
