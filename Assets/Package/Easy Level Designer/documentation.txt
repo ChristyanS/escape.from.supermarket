@@ -1,0 +1,11 @@
+Easy Level Design or ELD for short is a free tool for level sketching.
+To start using ELD you have to follow these simple steps!
+	- Create a Material.
+	- Apply to that Material the "EasyLevelDesign" shader.You can find it under /Shader Graphs/EasyLevelDesign or in the "Shaders" folder.
+	(You can also use our example materials in "Example Materials" folder)
+	- After aplling the shader , you have to set an image in the "Image" property of the Material.You can choose between 3 paterns that you can find inside "Image" folder.
+	- Then change the "Tile" property to your preference(recomented = 2).
+	- Change the "Basic Color" and the "Grid Color" property to your preference.
+	- Set the "Flexible" property if you want your material to be flexible or not. You can find a picture with the difrence in the Asset Store page.
+	- Lastly you can drag and drop the mesheis inside the "Mesh" folder , apply your Materil on it . then you can make it a prefab or you can use our prefabs inside "Prefabs" folder.
+You can now start building and sketching your level!!
