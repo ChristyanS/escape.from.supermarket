@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Behaviours.UI
 {
@@ -9,6 +10,13 @@ namespace Behaviours.UI
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        
+
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.R))
+            {
+             SceneManager.LoadScene(1);
+            }
+        }
     }
 }
