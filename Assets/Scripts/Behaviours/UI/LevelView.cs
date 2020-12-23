@@ -5,6 +5,7 @@ namespace Behaviours.UI
 {
     public class LevelView : MonoBehaviour
     {
+        public int scene;
         void Start()
         {
             Cursor.visible = false;
@@ -15,7 +16,15 @@ namespace Behaviours.UI
         {
             if (Input.GetKey(KeyCode.R))
             {
-             SceneManager.LoadScene(1);
+             SceneManager.LoadScene(scene);
+            }
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                SceneManager.LoadScene(1);
+            }
+            if (Input.GetKey(KeyCode.Alpha2))
+            {
+                SceneManager.LoadScene(2);
             }
         }
     }
