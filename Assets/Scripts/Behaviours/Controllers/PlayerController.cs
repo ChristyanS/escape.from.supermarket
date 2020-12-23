@@ -201,7 +201,7 @@ namespace Behaviours.Controllers
 
         public void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            if (hit.collider != null && hit.collider.CompareTag("Pushable"))
+            if (hit.collider != null && hit.collider.CompareTag("Pushable") && VirtualInputManager.Instance.Push)
             {
                 IsPushing = true;
                 hit.collider.attachedRigidbody.isKinematic = !VirtualInputManager.Instance.Push;
