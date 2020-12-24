@@ -13,9 +13,11 @@ namespace Behaviours.Controllers
         [SerializeField] [Range(1, 4)] private float speedMultiplier = 1.5f;
         [SerializeField] [Range(0, 20)] private float timeToDie = 4f;
         [SerializeField] [Range(1, 5)] private float reduceVelocity = 3f;
+        [SerializeField] [Range(1, 5)] private float reduceVelocityPushableObject = 3f;
         [SerializeField] [Range(-20, 0)] private float fallVelocityDeath = -6;
         public Transform cameraTransform;
         public GameObject checkGround;
+        public GameObject checkForward;
         public GameObject startCapsule;
         public GameObject endCapsule;
 
@@ -62,12 +64,12 @@ namespace Behaviours.Controllers
 
         void Update()
         {
-            IsPushing = false;
             SetPlayerMoveDirection();
             SetPlayerLookAtDirection();
 
             if (!IsDied)
             {
+                SetPushable();
                 SetDeathByPuddleTrap();
                 SetDeathPerFall();
                 SetDeathByCollision();
@@ -217,12 +219,31 @@ namespace Behaviours.Controllers
             Gizmos.DrawRay(position, Vector3.down * 0.35f);
         }
 
-        public void OnControllerColliderHit(ControllerColliderHit hit)
+        public void SetPushable()
         {
-            if (hit.collider != null && hit.collider.CompareTag("Pushable") && VirtualInputManager.Instance.Push)
+            var detected = Physics.Raycast(checkForward.transform.position,
+                checkForward.transform.forward * 0.1f, out var hit,
+                0.1f);
+            if (detected && hit.transform.CompareTag("Pushable"))
             {
-                IsPushing = true;
-                hit.collider.attachedRigidbody.isKinematic = !VirtualInputManager.Instance.Push;
+                if (VirtualInputManager.Instance.Push)
+                {
+                    var c = hit.collider.GetComponent<CharacterController>();
+                    var move = new Vector3(_movePlayer.x / reduceVelocityPushableObject, 0, _movePlayer.z / reduceVelocityPushableObject);
+                    c.Move(move * Time.deltaTime);
+                    IsPushing = true;
+                }
+                else
+                {
+                    IsPushing = false;
+
+                }
+            
+            }
+
+            if (!detected)
+            {
+                IsPushing = false;
             }
         }
 
