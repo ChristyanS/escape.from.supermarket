@@ -997,8 +997,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172115105}
-  m_LocalRotation: {x: 0.0013739476, y: 0.9969782, z: 0.018137502, w: 0.07552264}
-  m_LocalPosition: {x: 0.0000007095879, y: -0.000000023175595, z: 0.0000006367437}
+  m_LocalRotation: {x: 0.018189492, y: -0, z: 4.656613e-10, w: 0.99983466}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 139878827}
@@ -2283,7 +2283,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297761509}
-  m_LocalRotation: {x: -4.656613e-10, y: 0.9964833, z: 0.036269054, w: 0.07553521}
+  m_LocalRotation: {x: -1.1641532e-10, y: -0, z: 4.656613e-10, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2939,7 +2939,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed36224d8c37bca47a747fed2f1b62d1, type: 2}
+  - {fileID: 2100000, guid: 0422d1cc99bfa8a418d9e4f44dcefeb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2952,7 +2952,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -10604,7 +10604,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095760606}
-  m_LocalRotation: {x: -0.001370317, y: 0.9956613, z: 0.054340743, w: 0.07552282}
+  m_LocalRotation: {x: -0.018141452, y: -0, z: 0.0000000013969839, w: 0.9998355}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15604,7 +15604,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed36224d8c37bca47a747fed2f1b62d1, type: 2}
+  - {fileID: 2100000, guid: 0422d1cc99bfa8a418d9e4f44dcefeb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15617,7 +15617,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -25235,7 +25235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096103894}
-  m_LocalRotation: {x: 0.0052053332, y: 0.9580196, z: 0.017428774, w: -0.28612518}
+  m_LocalRotation: {x: 0.0052053323, y: 0.9580196, z: 0.017428773, w: -0.28612518}
   m_LocalPosition: {x: -5.3912044, y: 28.656927, z: -48.09837}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
