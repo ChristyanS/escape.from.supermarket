@@ -36,7 +36,7 @@ namespace Behaviours.Animator
 
         private void CheckRagdoll()
         {
-            if (_playerController.IsDeadByFall())
+            if (_playerController.IsDeadByFall() ||_playerController.IsHit)
             {
                 _animator.enabled = false;
             }

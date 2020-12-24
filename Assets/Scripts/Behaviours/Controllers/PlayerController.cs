@@ -16,6 +16,8 @@ namespace Behaviours.Controllers
         [SerializeField] [Range(-20, 0)] private float fallVelocityDeath = -6;
         public Transform cameraTransform;
         public GameObject checkGround;
+        public GameObject startCapsule;
+        public GameObject endCapsule;
 
         private CharacterController _characterController;
         private Vector3 _movePlayer;
@@ -26,6 +28,7 @@ namespace Behaviours.Controllers
         public bool IsPushing { get; private set; }
         public bool IsWinner { get; private set; }
         public bool IsWalking { get; private set; }
+        public bool IsHit { get; private set; }
 
         void Start()
         {
@@ -42,16 +45,32 @@ namespace Behaviours.Controllers
             _isInjured = false;
         }
 
+        void SetDeathByCollision()
+        {
+            if (WasHit())
+            {
+                IsHit = true;
+                SetDeath();
+            }
+        }
+
+        public bool WasHit()
+        {
+            return Physics.CheckCapsule(startCapsule.transform.position, endCapsule.transform.position, 0.1f,
+                LayerMask.GetMask("Dangerous"));
+        }
+
         void Update()
         {
             IsPushing = false;
             SetPlayerMoveDirection();
             SetPlayerLookAtDirection();
-            
+
             if (!IsDied)
             {
                 SetDeathByPuddleTrap();
                 SetDeathPerFall();
+                SetDeathByCollision();
                 if (IsGround())
                 {
                     FallVelocity = 0;
@@ -60,9 +79,8 @@ namespace Behaviours.Controllers
                 else
                     SetGravity();
 
-                SetMovement();  
+                SetMovement();
             }
-            
         }
 
         private void SetJumping()
