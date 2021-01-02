@@ -47,7 +47,7 @@ namespace Behaviours.Controllers
             _isInjured = false;
         }
 
-        void SetDeathByCollision()
+        private void SetDeathByCollision()
         {
             if (WasHit())
             {
@@ -56,9 +56,9 @@ namespace Behaviours.Controllers
             }
         }
 
-        public bool WasHit()
+        private bool WasHit()
         {
-            return Physics.CheckCapsule(startCapsule.transform.position, endCapsule.transform.position, 0.1f,
+            return Physics.CheckCapsule(startCapsule.transform.position, endCapsule.transform.position, _characterController.radius,
                 LayerMask.GetMask("Dangerous"));
         }
 
@@ -185,7 +185,7 @@ namespace Behaviours.Controllers
 
         public bool IsGround()
         {
-            return Physics.CheckSphere(checkGround.transform.position, 0.08f, LayerMask.GetMask("Default"));
+            return Physics.CheckSphere(checkGround.transform.position, _characterController.radius, LayerMask.GetMask("Default"));
         }
 
         private bool IsDangerous()
@@ -215,7 +215,7 @@ namespace Behaviours.Controllers
             Gizmos.color = Color.yellow;
 
             var position = checkGround.transform.position;
-            Gizmos.DrawWireSphere(position, 0.08f);
+            Gizmos.DrawWireSphere(position,  0.04f);
             Gizmos.DrawRay(position, Vector3.down * 0.35f);
         }
 
