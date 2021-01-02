@@ -7,7 +7,12 @@ namespace Behaviours.UI
     public class MenuView : MonoBehaviour
     {
         public GameObject loadPanel;
-
+        
+        void Start()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         private void Update()
         {
             if (Input.GetKey(KeyCode.Return))
