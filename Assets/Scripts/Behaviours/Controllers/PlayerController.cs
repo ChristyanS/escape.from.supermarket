@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Behaviours.Actions;
 using Behaviours.Managers;
+using Behaviours.Sounds;
 using UnityEngine;
 
 namespace Behaviours.Controllers
@@ -22,6 +23,7 @@ namespace Behaviours.Controllers
         public GameObject endCapsule;
 
         private CharacterController _characterController;
+        private PlayerSounds _playerSounds;
         private Vector3 _movePlayer;
         private float _timeToDieAux;
         private bool _isInjured;
@@ -35,12 +37,14 @@ namespace Behaviours.Controllers
         void Start()
         {
             _characterController = GetComponent<CharacterController>();
+            _playerSounds = GetComponent<PlayerSounds>();
         }
 
         private IEnumerator DamageEffect()
         {
             CameraShake.Instance.ShakeCamera(0.6f);
             _isInjured = true;
+            _playerSounds.Injured();
             yield return new WaitForSeconds(0.1f);
             CameraShake.Instance.ShakeCamera(0);
             yield return new WaitForSeconds(1);
@@ -270,6 +274,8 @@ namespace Behaviours.Controllers
             BlackAndWhiteEffect.Instance.Enable();
             IsDied = true;
             VirtualInputManager.Instance.EnableAllControls(false);
+            _playerSounds.Splash();
+            _playerSounds.DeathEffectClip();
         }
     }
 }
