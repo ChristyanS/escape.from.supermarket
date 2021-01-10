@@ -4,8 +4,8 @@ using UnityEngine.Serialization;
 namespace Behaviours.Sounds
 {
     public class PlayerSounds : MonoBehaviour
-    { 
-        [SerializeField] private AudioClip walkClip;
+    {
+        [SerializeField] private AudioClip[] walkClip;
         [SerializeField] private AudioClip jumpClip;
         [SerializeField] private AudioClip dyingClip;
         [SerializeField] private AudioClip fallingClip;
@@ -13,6 +13,7 @@ namespace Behaviours.Sounds
         [SerializeField] private AudioClip splashClip;
         [SerializeField] private AudioClip deathEffectClip;
         private AudioSource _audioSource;
+        private int _auxWalk;
 
         private void Awake()
         {
@@ -21,9 +22,21 @@ namespace Behaviours.Sounds
 
         private void Step()
         {
-            _audioSource.PlayOneShot(walkClip);
+            _audioSource.PlayOneShot(walkClip[_auxWalk]);
+            SetAuxWalk();
         }
-        
+
+        void SetAuxWalk()
+        {
+            if (_auxWalk == walkClip.Length-1)
+            {
+                _auxWalk = 0;
+            }
+            else
+            {
+                _auxWalk++;
+            }
+        }
         private void Jump()
         {
             _audioSource.PlayOneShot(jumpClip);
