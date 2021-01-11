@@ -305,7 +305,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000074505806, y: 0.060365193, z: -0.0000000037252903}
+  m_ConnectedAnchor: {x: 0.0000007925555, y: 0.060365163, z: 0.0000004209578}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -415,7 +415,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.033990048, y: 0.13203305, z: 0.004654946}
+  m_ConnectedAnchor: {x: -0.033990048, y: 0.13203311, z: 0.0046549384}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -524,7 +524,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0005995133, y: 0.1656675, z: -0.00038396195}
+  m_ConnectedAnchor: {x: 0.0005993948, y: 0.16566749, z: -0.00038395077}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -725,7 +725,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.020190276, y: -0.01885266, z: -0.0010790502}
+  m_ConnectedAnchor: {x: 0.020190205, y: -0.018852627, z: -0.0010800011}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -835,7 +835,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000030733645, y: 0.049601957, z: -0.00000008009374}
+  m_ConnectedAnchor: {x: 0.000000013504177, y: 0.04960209, z: 0.0000008640345}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1114,7 +1114,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000110827386, y: 0.060365584, z: -0.00000010803342}
+  m_ConnectedAnchor: {x: -0.00000068359077, y: 0.060365606, z: 0.00000042840838}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1376,7 +1376,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.020190278, y: -0.018852685, z: -0.0010217773}
+  m_ConnectedAnchor: {x: -0.020190395, y: -0.018852653, z: -0.0010217663}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1486,7 +1486,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000006239861, y: 0.04960172, z: 0.00000033155084}
+  m_ConnectedAnchor: {x: 0.00000019045547, y: 0.04960166, z: -0.00000059441663}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1595,7 +1595,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000002438901, y: 0.03393483, z: 0.0049180035}
+  m_ConnectedAnchor: {x: -0.00000014220132, y: 0.03393488, z: 0.0049180146}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1797,7 +1797,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.036213014, y: 0.13108851, z: 0.0037176814}
+  m_ConnectedAnchor: {x: 0.03621308, y: 0.13108863, z: 0.0037186276}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -1961,8 +1961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2a5c66cecc03e4ebdd577d568e7db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkClip: {fileID: 8300000, guid: 74e62af5f9ae34c4b95e2328e9911f9c, type: 3}
-  jumpClip: {fileID: 8300000, guid: 4ef9dcb683b9d2640b7cef4118e4e7f4, type: 3}
+  walkClip:
+  - {fileID: 8300000, guid: 0b7835565eb7cd54595ae94ce41bc6d1, type: 3}
+  - {fileID: 8300000, guid: 2ebda85144191ea4294b84fc7ef6155d, type: 3}
+  - {fileID: 8300000, guid: 2ebda85144191ea4294b84fc7ef6155d, type: 3}
+  - {fileID: 8300000, guid: e242edf9da43cf3459e8f8c8f0e8b58d, type: 3}
+  jumpClip: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
   dyingClip: {fileID: 8300000, guid: ab99b1125aaaaa34693efdac47bfee8e, type: 3}
   fallingClip: {fileID: 8300000, guid: 41bcfe922ac717740b0a86a2ebe43bb6, type: 3}
   injuredClip: {fileID: 8300000, guid: ba7401e6043c1de49bd80eb5a635867c, type: 3}
