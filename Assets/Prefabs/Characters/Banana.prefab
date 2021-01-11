@@ -1967,7 +1967,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ebda85144191ea4294b84fc7ef6155d, type: 3}
   - {fileID: 8300000, guid: e242edf9da43cf3459e8f8c8f0e8b58d, type: 3}
   jumpClip: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
-  dyingClip: {fileID: 8300000, guid: ab99b1125aaaaa34693efdac47bfee8e, type: 3}
+  dyingClip: {fileID: 8300000, guid: ca7ddc87533ca374a86c19830ce8f441, type: 3}
   fallingClip: {fileID: 8300000, guid: 41bcfe922ac717740b0a86a2ebe43bb6, type: 3}
   injuredClip: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
   splashClip: {fileID: 8300000, guid: ca7ddc87533ca374a86c19830ce8f441, type: 3}
