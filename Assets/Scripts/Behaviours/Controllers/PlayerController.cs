@@ -21,7 +21,6 @@ namespace Behaviours.Controllers
         public GameObject checkForward;
         public GameObject startCapsule;
         public GameObject endCapsule;
-
         private CharacterController _characterController;
         private PlayerSounds _playerSounds;
         private Vector3 _movePlayer;
@@ -148,7 +147,9 @@ namespace Behaviours.Controllers
             SetWalkVelocity(horizontalVelocity);
 
             if (VirtualInputManager.Instance.Run)
+            {
                 SetRunVelocity();
+            }
             _characterController.Move(_movePlayer);
         }
 
