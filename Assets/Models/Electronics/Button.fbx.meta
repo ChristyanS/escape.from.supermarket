@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 8ea9f0c5d0bc9bf40962b4047680bd5e
+guid: 0aa64d8d992f1984d9a593ac3370e1f7
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stcok_Room_Building
-    second: {fileID: 2100000, guid: 3ecc5185d24ea1a419ab69bf1ba3345a, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
