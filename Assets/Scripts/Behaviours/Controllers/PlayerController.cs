@@ -16,11 +16,12 @@ namespace Behaviours.Controllers
         [SerializeField] [Range(1, 5)] private float reduceVelocity = 3f;
         [SerializeField] [Range(1, 5)] private float reduceVelocityPushableObject = 3f;
         [SerializeField] [Range(-20, 0)] private float fallVelocityDeath = -6;
-        public Transform cameraTransform;
-        public GameObject checkGround;
-        public GameObject checkForward;
-        public GameObject startCapsule;
-        public GameObject endCapsule;
+        [SerializeField] [Range(0, 10)] private float slopeForce = 4;
+        [SerializeField] private Transform cameraTransform;
+        [SerializeField] private GameObject checkGround;
+        [SerializeField] private GameObject checkForward;
+        [SerializeField] private GameObject startCapsule;
+        [SerializeField] private GameObject endCapsule;
         private CharacterController _characterController;
         private PlayerSounds _playerSounds;
         private Vector3 _movePlayer;
@@ -37,6 +38,23 @@ namespace Behaviours.Controllers
         {
             _characterController = GetComponent<CharacterController>();
             _playerSounds = GetComponent<PlayerSounds>();
+        }
+
+        private bool OnSlope()
+        {
+            if (Physics.Raycast(transform.position,
+                Vector3.down * 0.01f, out var hit,
+                1.5f))
+            {
+                if (hit.normal != Vector3.up)
+                {
+                    var a = Vector3.Angle(hit.normal, _characterController.transform.forward);
+                    return true;
+
+                }
+                
+            }
+            return false;
         }
 
         private IEnumerator DamageEffect()
@@ -61,7 +79,8 @@ namespace Behaviours.Controllers
 
         private bool WasHit()
         {
-            return Physics.CheckCapsule(startCapsule.transform.position, endCapsule.transform.position, _characterController.radius,
+            return Physics.CheckCapsule(startCapsule.transform.position, endCapsule.transform.position,
+                _characterController.radius,
                 LayerMask.GetMask("Dangerous"));
         }
 
@@ -150,7 +169,12 @@ namespace Behaviours.Controllers
             {
                 SetRunVelocity();
             }
+
             _characterController.Move(_movePlayer);
+            if (OnSlope())
+            {
+                _characterController.Move(Vector3.down * _characterController.height / 2 * slopeForce * Time.deltaTime);
+            }
         }
 
         private void SetRunVelocity()
@@ -190,7 +214,8 @@ namespace Behaviours.Controllers
 
         public bool IsGround()
         {
-            return Physics.CheckSphere(checkGround.transform.position, _characterController.radius, LayerMask.GetMask("Default"));
+            return Physics.CheckSphere(checkGround.transform.position, _characterController.radius,
+                LayerMask.GetMask("Default"));
         }
 
         private bool IsDangerous()
@@ -220,7 +245,7 @@ namespace Behaviours.Controllers
             Gizmos.color = Color.yellow;
 
             var position = checkGround.transform.position;
-            Gizmos.DrawWireSphere(position,  0.04f);
+            Gizmos.DrawWireSphere(position, 0.04f);
             Gizmos.DrawRay(position, Vector3.down * 0.35f);
         }
 
@@ -234,16 +259,15 @@ namespace Behaviours.Controllers
                 if (VirtualInputManager.Instance.Push)
                 {
                     var c = hit.collider.GetComponent<CharacterController>();
-                    var move = new Vector3(_movePlayer.x / reduceVelocityPushableObject, 0, _movePlayer.z / reduceVelocityPushableObject);
+                    var move = new Vector3(_movePlayer.x / reduceVelocityPushableObject, 0,
+                        _movePlayer.z / reduceVelocityPushableObject);
                     c.Move(move * Time.deltaTime);
                     IsPushing = true;
                 }
                 else
                 {
                     IsPushing = false;
-
                 }
-            
             }
 
             if (!detected)
