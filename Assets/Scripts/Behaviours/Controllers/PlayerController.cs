@@ -44,13 +44,12 @@ namespace Behaviours.Controllers
         {
             if (Physics.Raycast(transform.position,
                 Vector3.down * 0.01f, out var hit,
-                1.5f))
+                0.1f))
             {
                 if (hit.normal != Vector3.up)
                 {
                     var a = Vector3.Angle(hit.normal, _characterController.transform.forward);
                     return true;
-
                 }
                 
             }
@@ -95,6 +94,10 @@ namespace Behaviours.Controllers
                 SetDeathByPuddleTrap();
                 SetDeathPerFall();
                 SetDeathByCollision();
+                if (OnSlope())
+                {
+                    SetJumping();
+                }
                 if (IsGround())
                 {
                     FallVelocity = 0;
@@ -171,7 +174,7 @@ namespace Behaviours.Controllers
             }
 
             _characterController.Move(_movePlayer);
-            if (OnSlope())
+            if (OnSlope() && ! HasObjectForward(out var hit))
             {
                 _characterController.Move(Vector3.down * _characterController.height / 2 * slopeForce * Time.deltaTime);
             }
@@ -247,13 +250,13 @@ namespace Behaviours.Controllers
             var position = checkGround.transform.position;
             Gizmos.DrawWireSphere(position, 0.04f);
             Gizmos.DrawRay(position, Vector3.down * 0.35f);
+            Gizmos.DrawRay(checkForward.transform.position, checkForward.transform.forward * 0.1f);
+
         }
 
-        public void SetPushable()
+        private void SetPushable()
         {
-            var detected = Physics.Raycast(checkForward.transform.position,
-                checkForward.transform.forward * 0.1f, out var hit,
-                0.1f);
+            var detected = HasObjectForward(out var hit);
             if (detected && hit.transform.CompareTag("Pushable"))
             {
                 if (VirtualInputManager.Instance.Push)
@@ -274,6 +277,22 @@ namespace Behaviours.Controllers
             {
                 IsPushing = false;
             }
+        }
+
+        private bool HasObjectForward(out RaycastHit hit)
+        {
+            if (Physics.Raycast(checkForward.transform.position,
+                checkForward.transform.forward * 0.1f, out hit,
+                0.35f))
+            {
+                if (!hit.transform.CompareTag("Player"))
+                {
+                    Debug.Log("Frente");
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void OnTriggerEnter(Collider other)
