@@ -287,7 +287,6 @@ namespace Behaviours.Controllers
             {
                 if (!hit.transform.CompareTag("Player"))
                 {
-                    Debug.Log("Frente");
                     return true;
                 }
             }

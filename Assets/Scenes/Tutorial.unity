@@ -6411,29 +6411,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5832548527949342601, guid: c76948c9c91c0124892852d26b09e4cb, type: 3}
   m_PrefabInstance: {fileID: 620551314}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &639037988 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2241066191413298362, guid: cb8e424cd5ba3904eb9f7f7fe4a76661, type: 3}
-  m_PrefabInstance: {fileID: 8650352197301037018}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &639037989
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639037988}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 0.7469611
-  m_Radius: 0.27
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0.28}
 --- !u!1001 &641925697
 PrefabInstance:
   m_ObjectHideFlags: 0
