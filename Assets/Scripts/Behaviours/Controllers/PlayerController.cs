@@ -17,6 +17,7 @@ namespace Behaviours.Controllers
         [SerializeField] [Range(1, 5)] private float reduceVelocityPushableObject = 3f;
         [SerializeField] [Range(-20, 0)] private float fallVelocityDeath = -6;
         [SerializeField] [Range(0, 10)] private float slopeForce = 4;
+        [SerializeField] [Range(0, 20)] private float bouncingForce = 3;
         [SerializeField] private Transform cameraTransform;
         [SerializeField] private GameObject checkGround;
         [SerializeField] private GameObject checkForward;
@@ -82,6 +83,13 @@ namespace Behaviours.Controllers
                 _characterController.radius,
                 LayerMask.GetMask("Dangerous"));
         }
+        
+        private bool WasHitBouncing()
+        {
+            return Physics.CheckCapsule(startCapsule.transform.position, endCapsule.transform.position,
+                _characterController.radius,
+                LayerMask.GetMask("Bouncing"));
+        }
 
         void Update()
         {
@@ -94,6 +102,7 @@ namespace Behaviours.Controllers
                 SetDeathByPuddleTrap();
                 SetDeathPerFall();
                 SetDeathByCollision();
+                SetBouncing();
                 if (OnSlope())
                 {
                     SetJumping();
@@ -110,6 +119,14 @@ namespace Behaviours.Controllers
             }
         }
 
+        public void SetBouncing()
+        {
+            if (WasHitBouncing())
+            {
+                FallVelocity = bouncingForce;
+                _movePlayer.y = FallVelocity;
+            }
+        }
         private void SetJumping()
         {
             if (CanJump())
