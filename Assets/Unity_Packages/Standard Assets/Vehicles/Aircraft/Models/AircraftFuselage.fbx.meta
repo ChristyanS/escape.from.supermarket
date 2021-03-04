@@ -1,87 +1,245 @@
 fileFormatVersion: 2
 guid: 4fea6053a1424d44daf193f09be2d491
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: vehicle_planeGeneric_fuselage
-    100004: vehicle_planeGeneric_left_gearDoor
-    100006: vehicle_planeGeneric_left_rudder
-    100008: vehicle_planeGeneric_right_gearDoor
-    100010: vehicle_planeGeneric_right_rudder
-    100012: aircraft_generic_fuselage
-    100014: aircraft_generic_left_gearDoor
-    100016: aircraft_generic_left_rudder
-    100018: aircraft_generic_right_gearDoor
-    100020: aircraft_generic_right_rudder
-    100022: AircraftFuselageBody
-    100024: AircraftFuselageGearDoorLeft
-    100026: AircraftFuselageGearDoorRight
-    100028: AircraftFuselageRudderLeft
-    100030: AircraftFuselageRudderRight
-    400000: //RootNode
-    400002: vehicle_planeGeneric_fuselage
-    400004: vehicle_planeGeneric_left_gearDoor
-    400006: vehicle_planeGeneric_left_rudder
-    400008: vehicle_planeGeneric_right_gearDoor
-    400010: vehicle_planeGeneric_right_rudder
-    400012: aircraft_generic_fuselage
-    400014: aircraft_generic_left_gearDoor
-    400016: aircraft_generic_left_rudder
-    400018: aircraft_generic_right_gearDoor
-    400020: aircraft_generic_right_rudder
-    400022: AircraftFuselageBody
-    400024: AircraftFuselageGearDoorLeft
-    400026: AircraftFuselageGearDoorRight
-    400028: AircraftFuselageRudderLeft
-    400030: AircraftFuselageRudderRight
-    2300000: vehicle_planeGeneric_fuselage
-    2300002: vehicle_planeGeneric_left_gearDoor
-    2300004: vehicle_planeGeneric_left_rudder
-    2300006: vehicle_planeGeneric_right_gearDoor
-    2300008: vehicle_planeGeneric_right_rudder
-    2300010: aircraft_generic_fuselage
-    2300012: aircraft_generic_left_gearDoor
-    2300014: aircraft_generic_left_rudder
-    2300016: aircraft_generic_right_gearDoor
-    2300018: aircraft_generic_right_rudder
-    2300020: AircraftFuselageBody
-    2300022: AircraftFuselageGearDoorLeft
-    2300024: AircraftFuselageGearDoorRight
-    2300026: AircraftFuselageRudderLeft
-    2300028: AircraftFuselageRudderRight
-    3300000: vehicle_planeGeneric_fuselage
-    3300002: vehicle_planeGeneric_left_gearDoor
-    3300004: vehicle_planeGeneric_left_rudder
-    3300006: vehicle_planeGeneric_right_gearDoor
-    3300008: vehicle_planeGeneric_right_rudder
-    3300010: aircraft_generic_fuselage
-    3300012: aircraft_generic_left_gearDoor
-    3300014: aircraft_generic_left_rudder
-    3300016: aircraft_generic_right_gearDoor
-    3300018: aircraft_generic_right_rudder
-    3300020: AircraftFuselageBody
-    3300022: AircraftFuselageGearDoorLeft
-    3300024: AircraftFuselageGearDoorRight
-    3300026: AircraftFuselageRudderLeft
-    3300028: AircraftFuselageRudderRight
-    4300000: vehicle_planeGeneric_left_rudder
-    4300002: vehicle_planeGeneric_fuselage
-    4300004: vehicle_planeGeneric_left_gearDoor
-    4300006: vehicle_planeGeneric_right_gearDoor
-    4300008: vehicle_planeGeneric_right_rudder
-    4300010: aircraft_generic_left_rudder
-    4300012: aircraft_generic_fuselage
-    4300014: aircraft_generic_left_gearDoor
-    4300016: aircraft_generic_right_gearDoor
-    4300018: aircraft_generic_right_rudder
-    4300020: AircraftFuselageRudderLeft
-    4300022: AircraftFuselageBody
-    4300024: AircraftFuselageGearDoorLeft
-    4300026: AircraftFuselageGearDoorRight
-    4300028: AircraftFuselageRudderRight
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: vehicle_planeGeneric_fuselage
+  - first:
+      1: 100004
+    second: vehicle_planeGeneric_left_gearDoor
+  - first:
+      1: 100006
+    second: vehicle_planeGeneric_left_rudder
+  - first:
+      1: 100008
+    second: vehicle_planeGeneric_right_gearDoor
+  - first:
+      1: 100010
+    second: vehicle_planeGeneric_right_rudder
+  - first:
+      1: 100012
+    second: aircraft_generic_fuselage
+  - first:
+      1: 100014
+    second: aircraft_generic_left_gearDoor
+  - first:
+      1: 100016
+    second: aircraft_generic_left_rudder
+  - first:
+      1: 100018
+    second: aircraft_generic_right_gearDoor
+  - first:
+      1: 100020
+    second: aircraft_generic_right_rudder
+  - first:
+      1: 100022
+    second: AircraftFuselageBody
+  - first:
+      1: 100024
+    second: AircraftFuselageGearDoorLeft
+  - first:
+      1: 100026
+    second: AircraftFuselageGearDoorRight
+  - first:
+      1: 100028
+    second: AircraftFuselageRudderLeft
+  - first:
+      1: 100030
+    second: AircraftFuselageRudderRight
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: vehicle_planeGeneric_fuselage
+  - first:
+      4: 400004
+    second: vehicle_planeGeneric_left_gearDoor
+  - first:
+      4: 400006
+    second: vehicle_planeGeneric_left_rudder
+  - first:
+      4: 400008
+    second: vehicle_planeGeneric_right_gearDoor
+  - first:
+      4: 400010
+    second: vehicle_planeGeneric_right_rudder
+  - first:
+      4: 400012
+    second: aircraft_generic_fuselage
+  - first:
+      4: 400014
+    second: aircraft_generic_left_gearDoor
+  - first:
+      4: 400016
+    second: aircraft_generic_left_rudder
+  - first:
+      4: 400018
+    second: aircraft_generic_right_gearDoor
+  - first:
+      4: 400020
+    second: aircraft_generic_right_rudder
+  - first:
+      4: 400022
+    second: AircraftFuselageBody
+  - first:
+      4: 400024
+    second: AircraftFuselageGearDoorLeft
+  - first:
+      4: 400026
+    second: AircraftFuselageGearDoorRight
+  - first:
+      4: 400028
+    second: AircraftFuselageRudderLeft
+  - first:
+      4: 400030
+    second: AircraftFuselageRudderRight
+  - first:
+      23: 2300000
+    second: vehicle_planeGeneric_fuselage
+  - first:
+      23: 2300002
+    second: vehicle_planeGeneric_left_gearDoor
+  - first:
+      23: 2300004
+    second: vehicle_planeGeneric_left_rudder
+  - first:
+      23: 2300006
+    second: vehicle_planeGeneric_right_gearDoor
+  - first:
+      23: 2300008
+    second: vehicle_planeGeneric_right_rudder
+  - first:
+      23: 2300010
+    second: aircraft_generic_fuselage
+  - first:
+      23: 2300012
+    second: aircraft_generic_left_gearDoor
+  - first:
+      23: 2300014
+    second: aircraft_generic_left_rudder
+  - first:
+      23: 2300016
+    second: aircraft_generic_right_gearDoor
+  - first:
+      23: 2300018
+    second: aircraft_generic_right_rudder
+  - first:
+      23: 2300020
+    second: AircraftFuselageBody
+  - first:
+      23: 2300022
+    second: AircraftFuselageGearDoorLeft
+  - first:
+      23: 2300024
+    second: AircraftFuselageGearDoorRight
+  - first:
+      23: 2300026
+    second: AircraftFuselageRudderLeft
+  - first:
+      23: 2300028
+    second: AircraftFuselageRudderRight
+  - first:
+      33: 3300000
+    second: vehicle_planeGeneric_fuselage
+  - first:
+      33: 3300002
+    second: vehicle_planeGeneric_left_gearDoor
+  - first:
+      33: 3300004
+    second: vehicle_planeGeneric_left_rudder
+  - first:
+      33: 3300006
+    second: vehicle_planeGeneric_right_gearDoor
+  - first:
+      33: 3300008
+    second: vehicle_planeGeneric_right_rudder
+  - first:
+      33: 3300010
+    second: aircraft_generic_fuselage
+  - first:
+      33: 3300012
+    second: aircraft_generic_left_gearDoor
+  - first:
+      33: 3300014
+    second: aircraft_generic_left_rudder
+  - first:
+      33: 3300016
+    second: aircraft_generic_right_gearDoor
+  - first:
+      33: 3300018
+    second: aircraft_generic_right_rudder
+  - first:
+      33: 3300020
+    second: AircraftFuselageBody
+  - first:
+      33: 3300022
+    second: AircraftFuselageGearDoorLeft
+  - first:
+      33: 3300024
+    second: AircraftFuselageGearDoorRight
+  - first:
+      33: 3300026
+    second: AircraftFuselageRudderLeft
+  - first:
+      33: 3300028
+    second: AircraftFuselageRudderRight
+  - first:
+      43: 4300000
+    second: vehicle_planeGeneric_left_rudder
+  - first:
+      43: 4300002
+    second: vehicle_planeGeneric_fuselage
+  - first:
+      43: 4300004
+    second: vehicle_planeGeneric_left_gearDoor
+  - first:
+      43: 4300006
+    second: vehicle_planeGeneric_right_gearDoor
+  - first:
+      43: 4300008
+    second: vehicle_planeGeneric_right_rudder
+  - first:
+      43: 4300010
+    second: aircraft_generic_left_rudder
+  - first:
+      43: 4300012
+    second: aircraft_generic_fuselage
+  - first:
+      43: 4300014
+    second: aircraft_generic_left_gearDoor
+  - first:
+      43: 4300016
+    second: aircraft_generic_right_gearDoor
+  - first:
+      43: 4300018
+    second: aircraft_generic_right_rudder
+  - first:
+      43: 4300020
+    second: AircraftFuselageRudderLeft
+  - first:
+      43: 4300022
+    second: AircraftFuselageBody
+  - first:
+      43: 4300024
+    second: AircraftFuselageGearDoorLeft
+  - first:
+      43: 4300026
+    second: AircraftFuselageGearDoorRight
+  - first:
+      43: 4300028
+    second: AircraftFuselageRudderRight
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -89,7 +247,7 @@ ModelImporter:
       name: AircraftFuselageWhite
     second: {fileID: 2100000, guid: 6f36a222811073946936cf1cdeb78f9c, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 1
     materialSearch: 2
     materialLocation: 0
@@ -122,25 +280,32 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 0
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -149,10 +314,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -162,13 +327,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
