@@ -93,7 +93,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2023031370656714501, guid: f07d587e1a743ce4ba63fc256c81b340, type: 3}
 --- !u!1 &5563391859882263422
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5079765466686511556}
   - component: {fileID: 8201380731187517025}
   - component: {fileID: 6212116570571449003}
-  - component: {fileID: 5563391859882263423}
+  - component: {fileID: 1983883031551890007}
   m_Layer: 0
   m_Name: Pig_low
   m_TagString: Untagged
@@ -179,8 +179,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5563391859882263423
-MeshCollider:
+--- !u!136 &1983883031551890007
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -189,7 +189,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8078154815957437601, guid: f07d587e1a743ce4ba63fc256c81b340, type: 3}
+  m_Radius: 0.50718033
+  m_Height: 3.0554576
+  m_Direction: 2
+  m_Center: {x: -0.01841569, y: -0.039530754, z: -0.09967399}
