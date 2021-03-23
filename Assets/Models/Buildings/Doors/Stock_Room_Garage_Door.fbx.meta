@@ -3,7 +3,17 @@ guid: 488588cf84292f24c8fc940f9bc955da
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Garage_Door
+    second: {fileID: 2100000, guid: 7038d00239ced1649b4e7cb61410a808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Garage_Door_Lights
+    second: {fileID: 2100000, guid: 5c5156218ad54594cb3ef242294e0da5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
