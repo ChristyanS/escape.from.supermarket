@@ -3,7 +3,17 @@ guid: a3f01cf8853ba5d4085bfdcb8fd599ef
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scanner
+    second: {fileID: 2100000, guid: aa18b5b4a3fdc6a4a889166766543361, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scanner_Lights
+    second: {fileID: 2100000, guid: aaeffc241a63a52438b68543907855f3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
