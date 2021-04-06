@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8630896545520215620}
   - component: {fileID: 4641171876342655457}
   - component: {fileID: 7461398548802641195}
+  - component: {fileID: 7040815724467078586}
   m_Layer: 0
   m_Name: Food_Sausage
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4427394405292297522, guid: 27bd0c632f7f7404c823989977082430, type: 3}
+  - {fileID: 2100000, guid: 2ea3a52ef547c67439e437e2261e959d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7040815724467078586
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974770269970283774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7215145859071730411, guid: 27bd0c632f7f7404c823989977082430, type: 3}
