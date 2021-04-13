@@ -3,7 +3,17 @@ guid: f07d587e1a743ce4ba63fc256c81b340
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Pig_low
+    second: {fileID: 2100000, guid: a41a907acf7d51a46b400a565af4ce7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lockers_And_Ladder
+    second: {fileID: 2100000, guid: 1b9f49412b16a8942989852d3a07a799, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
