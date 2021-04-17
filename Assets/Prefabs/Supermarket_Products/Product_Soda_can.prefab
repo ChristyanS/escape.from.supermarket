@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5832548527949342601}
   - component: {fileID: 7448536444410980396}
   - component: {fileID: 4664166976706976998}
-  - component: {fileID: 6303885569203667044}
+  - component: {fileID: 7612908043081668256}
   m_Layer: 0
   m_Name: Product_Soda_can
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6303885569203667044
-CapsuleCollider:
+--- !u!64 &7612908043081668256
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +92,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.08939741
-  m_Height: 0.32371375
-  m_Direction: 2
-  m_Center: {x: -0.006055832, y: 3.5527188e-16, z: 0.15}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3797237313934805174, guid: 300914de6181abd469646e745436953d, type: 3}

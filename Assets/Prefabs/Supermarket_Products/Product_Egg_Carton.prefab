@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4233898921342968644}
   - component: {fileID: 967727695666457825}
   - component: {fileID: 3065535723568453675}
+  - component: {fileID: 6686061080753608798}
   m_Layer: 0
   m_Name: Product_Egg_Carton
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6686061080753608798
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569670119787264510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7356600014179744431, guid: ccd5ab0f5535fd146ab5051812553a60, type: 3}

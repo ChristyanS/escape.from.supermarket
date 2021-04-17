@@ -3,7 +3,17 @@ guid: a412b40f237f175478950eb4e774357c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lift_Lights
+    second: {fileID: 2100000, guid: 3453588f3875aa047a3fca39658d6e88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shelf_And_Lift
+    second: {fileID: 2100000, guid: a43875f8343914c49b50c62cd4bc8e8c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

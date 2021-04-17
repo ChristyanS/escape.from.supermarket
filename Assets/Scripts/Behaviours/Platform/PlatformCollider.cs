@@ -8,50 +8,50 @@ public class PlatformCollider : MonoBehaviour
     public GameObject Player;
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collided with something");
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
-                    Player.transform.parent = transform;
-            Debug.Log("Collided with player");
-        }
-        
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
-            Player.transform.parent = null;
-
-        }
-    }
-
-
-
-
-
-    //private void OnTriggerEnter(Collider other)
+    //private void OnCollisionEnter(Collision collision)
     //{
-    //   if(other.gameObject == Player)
+    //    Debug.Log("Collided with something");
+    //    if (collision.gameObject.CompareTag("Player"))
     //    {
 
-    //        Player.transform.parent = transform;
-
+    //                Player.transform.parent = transform;
+    //        Debug.Log("Collided with player");
     //    }
+        
     //}
 
-    //private void OnTriggerExit(Collider other)
+    //private void OnCollisionExit(Collision collision)
     //{
-    //    if (other.gameObject == Player)
+    //    if (collision.gameObject.CompareTag("Player"))
     //    {
+
     //        Player.transform.parent = null;
 
     //    }
     //}
+
+
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+
+            Player.transform.parent = transform;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player.transform.parent = null;
+
+        }
+    }
 
 
 }
