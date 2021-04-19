@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Dangerous
   - Pushable
+  - Environment
   layers:
   - Default
   - TransparentFX
