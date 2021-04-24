@@ -39,6 +39,8 @@ namespace Behaviours.Controllers
         {
             _characterController = GetComponent<CharacterController>();
             _playerSounds = GetComponent<PlayerSounds>();
+            transform.position = VirtualInputManager.Instance.spawnPosition;
+            Physics.SyncTransforms();
         }
 
         private bool OnSlope()

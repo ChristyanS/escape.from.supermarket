@@ -10,6 +10,7 @@ namespace Behaviours.Managers
         public bool enableRun;
         public bool enablePush;
         public bool enableWalk;
+        public Vector3 spawnPosition;
         public Vector3 Direction { get; private set; }
         public float HorizontalAxis { get; private set; }
         public float VerticalAxis { get; private set; }
