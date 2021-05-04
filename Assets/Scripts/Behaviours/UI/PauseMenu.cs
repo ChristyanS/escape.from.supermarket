@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Behaviours.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,10 +38,8 @@ public class PauseMenu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-
             SceneManager.LoadScene(1);
-
-
+            VirtualInputManager.Instance.EnableAllControls(true);
         }
 
 
