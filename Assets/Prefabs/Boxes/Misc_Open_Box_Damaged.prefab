@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4127262402033644401}
   - component: {fileID: 1074426119094369492}
   - component: {fileID: 2958257566076209182}
-  - component: {fileID: 2452609576925195500}
+  - component: {fileID: -7603411993319002386}
   m_Layer: 0
   m_Name: Misc_Open_Box_Damaged
   m_TagString: Untagged
@@ -82,8 +82,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2452609576925195500
-MeshCollider:
+--- !u!65 &-7603411993319002386
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,7 +92,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5278425799915742030, guid: d52ea13c80c24de44a255e4d09749a25, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.6426293, y: 0.8761827, z: 0.5536605}
+  m_Center: {x: 0.0000192523, y: -0.000007525088, z: 0.27608013}
