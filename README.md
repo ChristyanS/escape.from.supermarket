@@ -1,11 +1,16 @@
 # Escape From Supermarket
 
-> 3d plataform .
 
-[![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=plastic&logo=unity)](https://unity3d.com)
+[![Made with Unity](https://img.shields.io/badge/Made%20with-Unity%202020.2.1f1-57b9d3.svg?style=plastic&logo=unity)](https://unity3d.com)
 ![Build](https://github.com/ChristyanS/escape.from.supermarket/workflows/Build/badge.svg)
 
-![Gameplay animation](https://i.ibb.co/cQDMbvD/menu.gif)
+Escape from the supermarket is a 3D platformer with a third-person
+camera view. The main character is a banana that comes to life after
+leaking pipe drops an unknown chemical on it. The character needs to find
+a way out of the supermarket, doing so by exploring each room and
+avoiding its dangers.
+
+![Gameplay animation](https://i.ibb.co/BNTxxjS/ezgif-2-3c1e62cf8eba.gif)
 
 ## Installation
 
