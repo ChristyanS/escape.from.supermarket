@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-
+    public GameObject endGameUI;
 
 
 
@@ -41,6 +41,11 @@ public class PauseMenu : MonoBehaviour
             SceneManager.LoadScene(1);
             VirtualInputManager.Instance.EnableAllControls(true);
         }
+        if (endGameUI.gameObject.active)
+        {
+
+            EndMenu();
+        }
 
 
     }
@@ -57,6 +62,16 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+
+    }
+
+    void EndMenu()
+    {
+        endGameUI.SetActive(true);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
