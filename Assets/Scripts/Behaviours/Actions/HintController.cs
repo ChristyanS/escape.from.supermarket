@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,7 @@ namespace Behaviours.Actions
 {
     public class HintController : MonoBehaviour
     {
-        public Text textComponent;
+        public TextMeshProUGUI textComponent;
         public string hintText;
 
         private void OnTriggerEnter(Collider other)

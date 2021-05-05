@@ -4602,7 +4602,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297761509}
-  m_LocalRotation: {x: -0.000000003783498, y: 0.000000014901161, z: 4.656613e-10, w: 1}
+  m_LocalRotation: {x: -0.0000000019208528, y: 0.000000014901161, z: 4.656613e-10, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6169,6 +6169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412163927}
   - component: {fileID: 412163929}
+  - component: {fileID: 412163928}
   m_Layer: 2
   m_Name: Hint Button Action
   m_TagString: Untagged
@@ -6190,6 +6191,20 @@ Transform:
   m_Father: {fileID: 1152316071}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412163928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412163926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16fa5cdcd870249b315e042979b4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 910226354}
+  hintText: Press the button to activate the lift
 --- !u!65 &412163929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7329,7 +7344,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh342420
+  m_Name: pb_Mesh49672
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19640,6 +19655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870539037}
   - component: {fileID: 870539039}
+  - component: {fileID: 870539038}
   m_Layer: 2
   m_Name: Hint Walk
   m_TagString: Untagged
@@ -19661,6 +19677,20 @@ Transform:
   m_Father: {fileID: 1152316071}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870539038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870539036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16fa5cdcd870249b315e042979b4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 910226354}
+  hintText: Press 'WASD' to walk
 --- !u!65 &870539039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20557,6 +20587,140 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2508086399684619497, guid: 556fb215c04ed06498311ab6aba2e683, type: 3}
   m_PrefabInstance: {fileID: 906857589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &910226352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910226353}
+  - component: {fileID: 910226355}
+  - component: {fileID: 910226354}
+  m_Layer: 5
+  m_Name: Hint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &910226353
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910226352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1288295580}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.80200005}
+  m_AnchorMax: {x: 0.514, y: 1}
+  m_AnchoredPosition: {x: -0.039978027, y: 0.8000488}
+  m_SizeDelta: {x: 0.08000183, y: -1.6502}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &910226354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910226352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 1
+  m_colorMode: 2
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 69a525efa7e6472eab268f6ea605f06e, type: 2}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 75
+  m_fontSizeBase: 75
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 2048
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &910226355
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910226352}
+  m_CullTransparentMesh: 0
 --- !u!1001 &911139398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27758,7 +27922,7 @@ RectTransform:
   - {fileID: 1444316649}
   - {fileID: 1594019908}
   m_Father: {fileID: 1288295580}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -33831,6 +33995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1202808791}
   - component: {fileID: 1202808793}
+  - component: {fileID: 1202808792}
   m_Layer: 2
   m_Name: Hint Jump
   m_TagString: Untagged
@@ -33852,6 +34017,20 @@ Transform:
   m_Father: {fileID: 1152316071}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1202808792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202808790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16fa5cdcd870249b315e042979b4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 910226354}
+  hintText: Press 'Space' to jump
 --- !u!65 &1202808793
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36485,6 +36664,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 910226353}
   - {fileID: 1349304039}
   - {fileID: 1828969975}
   - {fileID: 1026050111}
@@ -36725,7 +36905,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh338620
+  m_Name: pb_Mesh47846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37882,7 +38062,7 @@ RectTransform:
   - {fileID: 26792394}
   - {fileID: 1253409206}
   m_Father: {fileID: 1288295580}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -39441,7 +39621,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh340096
+  m_Name: pb_Mesh48598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40158,6 +40338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456461133}
   - component: {fileID: 1456461135}
+  - component: {fileID: 1456461134}
   m_Layer: 2
   m_Name: Hint Run
   m_TagString: Untagged
@@ -40179,6 +40360,20 @@ Transform:
   m_Father: {fileID: 1152316071}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1456461134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456461132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16fa5cdcd870249b315e042979b4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 910226354}
+  hintText: Press 'Shift' to run
 --- !u!65 &1456461135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41103,7 +41298,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496369703}
-  m_LocalRotation: {x: 0.0026251306, y: 0.8976513, z: 0.005347473, w: -0.44066623}
+  m_LocalRotation: {x: 0.0026251285, y: 0.8976513, z: 0.0053474666, w: -0.44066626}
   m_LocalPosition: {x: 22.6, y: 33, z: -9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -41361,6 +41556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1511075014}
   - component: {fileID: 1511075016}
+  - component: {fileID: 1511075015}
   m_Layer: 2
   m_Name: Hint Dangeour Fall
   m_TagString: Untagged
@@ -41382,6 +41578,20 @@ Transform:
   m_Father: {fileID: 1152316071}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511075015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511075013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16fa5cdcd870249b315e042979b4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 910226354}
+  hintText: 'Watch your step and do not fall! '
 --- !u!65 &1511075016
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42880,7 +43090,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh338394
+  m_Name: pb_Mesh47772
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44820,6 +45030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1644851417}
   - component: {fileID: 1644851419}
+  - component: {fileID: 1644851418}
   m_Layer: 2
   m_Name: Hint Toxic Trap
   m_TagString: Untagged
@@ -44841,6 +45052,20 @@ Transform:
   m_Father: {fileID: 1152316071}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1644851418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644851416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e16fa5cdcd870249b315e042979b4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 910226354}
+  hintText: Watch out for toxic water
 --- !u!65 &1644851419
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45678,7 +45903,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh341184
+  m_Name: pb_Mesh49086
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46302,7 +46527,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh341466
+  m_Name: pb_Mesh49258
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -50240,7 +50465,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh342474
+  m_Name: pb_Mesh49714
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -50497,7 +50722,7 @@ RectTransform:
   - {fileID: 931090710}
   - {fileID: 2958274}
   m_Father: {fileID: 1288295580}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
